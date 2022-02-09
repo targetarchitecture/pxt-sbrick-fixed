@@ -45,7 +45,7 @@ namespace sbrick {
     }
 
     //% blockId=sbrick_drive
-    //% block="drive with|power %power|on port %p|in the direcion: %d" shim=sbrick::drive
+    //% block="drive with|power %power|on port %p|in the direction: %d" shim=sbrick::drive
     export function drive(power: number, p: SBPort, d: SBDirection): void
     { 
         return
@@ -53,17 +53,17 @@ namespace sbrick {
 
     //% blockId=sbrick_lightmono
     //% block="light on with |power %power|on channel %c" shim=sbrick::lightmono
-    export function lightMono(power: number, c: number): void
-    { 
-        return
-    }
+    // export function lightMono(power: number, c: number): void
+    // { 
+    //     return
+    // }
 
     //% blockId=sbrick_lightrgb
     //% block="RGB light on with |red %red|green %green|blue %blue|on port %p" shim=sbrick::lightrgb
-    export function lightRGB(red: number, green: number, blue: number, p: number): void
-    { 
-        return
-    }
+    // export function lightRGB(red: number, green: number, blue: number, p: number): void
+    // { 
+    //     return
+    // }
 
     //% blockId=sbrick_drive_from_accel
     //% block="drive |port %p|with acceleration read across dimension %d" shim=sbrick::driveFromAccel
@@ -88,22 +88,22 @@ namespace sbrick {
 
     //% blockId=sbrick_on_measurement
     //% block="on measurement" shim=sbrick::onMeasurement
-    export function onMeasurement(handler: () => void): void
-    {
-        return
-    }
+    // export function onMeasurement(handler: () => void): void
+    // {
+    //     return
+    // }
 
     //% blockId=sbrick_measured_value
     //% block="measured value" shim=sbrick::measuredValue
-    export function measuredValue(): number
-    {
-        return 0
-    }
+    // export function measuredValue(): number
+    // {
+    //     return 0
+    // }
 
     //% blockId=sbrick_measured_port_is
     //% block="measured port is|%p" shim=sbrick::measuredPortIs
-    export function measuredPortIs(p: SBPort): boolean
-    {
-        return false
-    }
+    // export function measuredPortIs(p: SBPort): boolean
+    // {
+    //     return false
+    // }
 }

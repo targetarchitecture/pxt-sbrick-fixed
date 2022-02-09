@@ -18,6 +18,14 @@
         "test.ts"
     ],
     "public": true,
+    "targetVersions": {
+        "target": "4.0.17",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj",
     "yotta": {
         "config": {
             "microbit-dal": {
