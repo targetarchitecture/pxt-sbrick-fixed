@@ -15,7 +15,6 @@
 *
 * Connection established:  EVENT_SBRICK_RSP | [4: 0] [12: n/a]
 * Signal complete:         EVENT_SBRICK_RSP | [4: 1] [12: n/a]
-* Measurement data:        EVENT_SBRICK_ADC | [12: value] [4: channel]
 * 
 */
 
@@ -53,8 +52,8 @@ namespace sbrick {
     }
 
     //% blockId=sbrick_drive
-    //% block="drive with|power %power|on port %p|in the direction: %d" shim=sbrick::drive
-    export function drive(power: number, p: SBPort, d: SBDirection): void
+    //% block="drive with|power %power|on port %port|in the direction: %direction" shim=sbrick::drive
+    export function drive(power: number, port: SBPort, direction: SBDirection): void
     { 
         return
     }
@@ -89,10 +88,10 @@ namespace sbrick {
 
     //% blockId=sbrick_set_device
     //% block="use device|type %d|on port %p" shim=sbrick::setDevice
-    export function setDevice(d: SBConnectedDevice, p: SBPort): void
-    {
-        return
-    }
+    // export function setDevice(d: SBConnectedDevice, p: SBPort): void
+    // {
+    //     return
+    // }
 
     //% blockId=sbrick_on_measurement
     //% block="on measurement" shim=sbrick::onMeasurement

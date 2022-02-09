@@ -44,36 +44,11 @@ executes strictly before this one.
 The power parameter should be in the range 0 - 255. Ports A, B, C, or D can be
 choosen from the dropdown menu, along with directions Forward and Backward.
 
-### Drive a given port based on the accelerometer
-
-With this block you can easily configure your micro:bit to act as a kind of
-joystick, and send drive signals to the SBrick based on how you tilt it along
-the given axis.
-
 ### Brake
 
 This command will cause an electrical short circuit on the given port of the
 SBrick. If a motor is connected to that port, this will make it hard to turn,
 and will act a brake.
-
-### Use device
-
-Configure a port on SBrick for a specific type of device.
-
-### On measurement
-
-This block of code runs whenever new measurement data arrives from the SBrick.
-
-### Measured value
-
-This variable contains the last measured value. It's in a range of 0 - 1000.
-0 means 0 volts, or ground, 1000 means the measured voltage is equal to the
-power supply voltage. This works well with WeDo 1 proximity and tilt sensors.
-
-### Measured port is...
-
-This block returns a truth value by checking the measured port. This block can
-be used with if statements and inside the "on measurement" block.
 
 ## Examples
 
@@ -130,71 +105,6 @@ sbrick.connect("SBrick")
 
 ```
 
-### Stop at the wall
-
-The example below will connect to an SBrick named "SBrick", starts a motor on 
-por D, then it receives measurement data from a WeDo infrared sensor on port C. 
-The received data is displayed as a bar graph. If there is an object in front 
-of the sensor, the motor is stopped. If the object is removed, the motor is 
-restarted.
-
-```blocks
-let distance = 0
-
-bluetooth.onBluetoothConnected(() => {
-    basic.showLeds(`
-        . # # . .
-        . # . # .
-        . # # . .
-        . # . # .
-        . # # . .
-        `)
-})
-
-bluetooth.onBluetoothDisconnected(() => {
-    basic.showLeds(`
-        . # . # .
-        . # . # .
-        . . . . .
-        # . . . #
-        . # # # .
-        `)
-})
-
-sbrick.onConnected(() => {
-    basic.showLeds(`
-        . # # # .
-        . # . . .
-        . . # . .
-        . . . # .
-        . # # # .
-        `)
-    sbrick.setDevice(SBConnectedDevice.Wedo1Motion, SBPort.C)
-})
-
-sbrick.onMeasurement(() => {
-    distance = sbrick.measuredValue() - 200
-    led.plotBarGraph(
-    distance,
-    220
-    )
-    if (distance > 100) {
-        sbrick.drive(255, SBPort.D, SBDirection.Forward)
-    } else {
-        sbrick.brake(SBPort.D)
-    }
-})
-
-basic.showLeds(`
-    . # . # .
-    . # . # .
-    . . . . .
-    # . . . #
-    . # # # .
-    `)
-
-sbrick.connect("SBrick")
-```
 ## Building on Ubuntu 20.04 Focal Fossa
 
 ```
