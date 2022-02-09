@@ -27,6 +27,14 @@ namespace sbrick {
     //shim=sbrick::connect
     export function connect(n: string): void
     {
+       n = n.trim();
+
+       let append = 7 - n.length;
+
+        for (let i = 0; i < append; i++) {
+            n = n + " ";
+        }
+
         let hash = 0
         
         for (let i = 0; i < n.length; i++) {
@@ -67,10 +75,10 @@ namespace sbrick {
 
     //% blockId=sbrick_drive_from_accel
     //% block="drive |port %p|with acceleration read across dimension %d" shim=sbrick::driveFromAccel
-    export function driveFromAccel(p: SBPort, d: SBDimension): void
-    {
-        return
-    }
+    // export function driveFromAccel(p: SBPort, d: SBDimension): void
+    // {
+    //     return
+    // }
 
     //% blockId=sbrick_brake
     //% block="brake on|port %p" shim=sbrick::brake

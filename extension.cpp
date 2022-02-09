@@ -68,8 +68,8 @@ namespace sbrick {
     }
 
     //% blockId=sbrick_drive
-    //% block="drive with|power %power|on port %p|in the direcion: %d"
-    void drive(int power, SBPort p, SBDirection d)
+    //% block="drive with|power %power|on port %port|in the direction: %direction"
+    void drive(int power, SBPort port, SBDirection direction)
     { 
         if (power < 0) {
             power = 0;
@@ -77,7 +77,7 @@ namespace sbrick {
         if (power > 255) {
             power = 255;
         }
-        MicroBitEvent ev(EVENT_SBRICK_CMD, 0x1000 + 512 * (int)p + 256 * (int)d + power);
+        MicroBitEvent ev(EVENT_SBRICK_CMD, 0x1000 + 512 * (int)port + 256 * (int)direction + power);
     }
 
     //% blockId=sbrick_lightmono
