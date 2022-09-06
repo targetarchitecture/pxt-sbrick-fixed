@@ -1,5 +1,5 @@
 {
-    "name": "sbrick",
+    "name": "sBrick (Fixed)",
     "version": "1.0.7",
     "description": "",
     "license": "MIT",
@@ -19,7 +19,7 @@
     ],
     "public": true,
     "targetVersions": {
-        "target": "4.0.17",
+        "target": "5.0.12",
         "targetId": "microbit"
     },
     "supportedTargets": [
@@ -32,7 +32,8 @@
                 "bluetooth": {
                     "open": 1,
                     "pairing_mode": 0,
-                    "whitelist": 0
+                    "whitelist": 0,
+                    "security_level": null
                 }
             }
         }
